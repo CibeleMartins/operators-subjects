@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ValueCoinsComponent } from './components/value-coins/value-coins.component';
 import { GraphicComponent } from './components/graphic/graphic.component';
 import { ConversionDashboardComponent } from './components/conversion-dashboard/conversion-dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValueCoinsComponent,
     GraphicComponent,
-    ConversionDashboardComponent
+    ConversionDashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConversionDashboardComponent } from './components/conversion-dashboard/conversion-dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  {path: '', component}
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({
