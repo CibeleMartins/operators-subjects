@@ -1,5 +1,13 @@
 <div id="card">
-    <div class="coin"><p>USD</p> <p>valor</p></div>
-    <div class="coin"><p>EUR</p> <p>valor</p></div>
-    <div class="coin"><p>BTC</p> <p>valor</p></div>
+  <div *ngFor="let coin of coins" class="coin">
+    <p class="price">{{ coin.code }}</p>
+    <p class="price">
+      {{ coin.highPrice }}
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </p>
+    <p class="price">
+      {{ coin.lowPrice}}
+      <span class="material-symbols-outlined"> arrow_downward </span>
+    </p>
+  </div>
 </div>
