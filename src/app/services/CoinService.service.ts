@@ -39,4 +39,10 @@ export class CoinService {
         }))
 
     }
+
+    convertValueCoin() {
+        return this.http.get('https://api.frankfurter.app/currencies').pipe(map((data)=> {
+           return Object.entries(data).map((i)=> i[0])
+        }))
+    }
 }
