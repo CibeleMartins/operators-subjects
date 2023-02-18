@@ -10,11 +10,16 @@ export class ConversionDashboardComponent {
 
   coinsConversionOption!: string[];
   displayConverter!: boolean;
+  selectedCoinBase: string = 'BRL';
+  selectedCoinConversion: string = 'USD'
+  valueCoin!: string;
 
   constructor(private coinService: CoinService) {}
 
   ngOnInit( ) {
-    this.coinService.convertValueCoin().subscribe({
+
+    console.log(this.selectedCoinBase)
+    this.coinService.getLegendCoins().subscribe({
       next: (data) => {console.log(data), this.coinsConversionOption = data },
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!') 
@@ -22,6 +27,11 @@ export class ConversionDashboardComponent {
   }
 
   showConverter() {
+
     this.displayConverter = true;
+  }
+
+  convert(valueCoin: string, coinBase: string, coinConversion: string) {
+    console.log(valueCoin, coinBase, coinConversion)
   }
 }

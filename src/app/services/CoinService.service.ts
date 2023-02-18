@@ -40,9 +40,14 @@ export class CoinService {
 
     }
 
-    convertValueCoin() {
+    getLegendCoins() {
         return this.http.get('https://api.frankfurter.app/currencies').pipe(map((data)=> {
            return Object.entries(data).map((i)=> i[0])
         }))
+    }
+
+
+    convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
+        
     }
 }

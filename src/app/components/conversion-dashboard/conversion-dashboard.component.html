@@ -5,18 +5,18 @@
 
   <div id="converter-coin" *ngIf="displayConverter">
     <div class="coin-action-control">
-      <input type="number" placeholder="Valor de conversão" />
-      <select name="coin1" id="coin-action">
+      <input  [(ngModel)]="valueCoin" type="number" placeholder="Valor de conversão" />
+      <select name="coin1" id="coin-action" [(ngModel)]="selectedCoinBase">
         <option *ngFor="let coinOption of coinsConversionOption">{{coinOption}}</option>
       </select>
-      <select name="coin2" id="coin-action">
+      <select name="coin2" id="coin-action" [(ngModel)]="selectedCoinConversion">
         <option *ngFor="let coinOption of coinsConversionOption">{{coinOption}}</option>
       </select>
     </div>
 
     <div [ngStyle]="{display: 'flex', justifyContent: 'space-between'}">
         <p>Result</p>
-        <button id="convert-action">Converter</button>
+        <button id="convert-action" type="button" (click)="convert(valueCoin, selectedCoinBase, selectedCoinConversion)">Converter</button>
     </div>
 
   </div>
