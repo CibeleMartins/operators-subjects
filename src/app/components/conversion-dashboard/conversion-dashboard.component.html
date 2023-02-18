@@ -1,5 +1,19 @@
-<button>
-    <span class="material-symbols-outlined">
-        currency_exchange
-    </span>
-</button>
+<div [ngStyle]="{ width: '30vw' }">
+  <button id="show-converter-action" *ngIf="!displayConverter" (click)="showConverter()">
+    <span class="material-symbols-outlined"> currency_exchange </span>
+  </button>
+
+  <div id="converter-coin" *ngIf="displayConverter">
+    <div>
+      <select name="coin1" id="first-coin"></select>
+      <select name="coin2" id="second-coin"></select>
+    </div>
+
+    <div>
+      <input type="number" placeholder="Moeda base" />
+      <input type="number" placeholder="Moeda de conversão" />
+    </div>
+
+    <button id="convert-action">Converter</button>
+  </div>
+</div>
