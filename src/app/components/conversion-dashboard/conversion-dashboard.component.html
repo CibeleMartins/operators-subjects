@@ -5,13 +5,9 @@
 
   <div id="converter-coin" *ngIf="displayConverter">
     <div class="coin-action-control">
+      <input type="number" placeholder="Valor de conversão" />
       <select name="coin1" id="coin-action"></select>
       <select name="coin2" id="coin-action"></select>
-    </div>
-
-    <div class="coin-action-control">
-      <input type="number" placeholder="Base" />
-      <input type="number" placeholder="Conversão"/>
     </div>
 
     <div [ngStyle]="{display: 'flex', justifyContent: 'space-between'}">
