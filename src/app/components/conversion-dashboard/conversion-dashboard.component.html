@@ -1,19 +1,23 @@
-<div [ngStyle]="{ width: '30vw' }">
+<div [ngStyle]="{width: '30vw', display: 'flex', alignItems: 'center', justifyContent: 'center'}">
   <button id="show-converter-action" *ngIf="!displayConverter" (click)="showConverter()">
     <span class="material-symbols-outlined"> currency_exchange </span>
   </button>
 
   <div id="converter-coin" *ngIf="displayConverter">
-    <div>
-      <select name="coin1" id="first-coin"></select>
-      <select name="coin2" id="second-coin"></select>
+    <div class="coin-action-control">
+      <select name="coin1" id="coin-action"></select>
+      <select name="coin2" id="coin-action"></select>
     </div>
 
-    <div>
-      <input type="number" placeholder="Moeda base" />
-      <input type="number" placeholder="Moeda de conversão" />
+    <div class="coin-action-control">
+      <input type="number" placeholder="Base" />
+      <input type="number" placeholder="Conversão"/>
     </div>
 
-    <button id="convert-action">Converter</button>
+    <div [ngStyle]="{display: 'flex', justifyContent: 'space-between'}">
+        <p>Result</p>
+        <button id="convert-action">Converter</button>
+    </div>
+
   </div>
 </div>
