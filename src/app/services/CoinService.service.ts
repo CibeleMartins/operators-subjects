@@ -48,6 +48,14 @@ export class CoinService {
 
 
     convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
-        
+
+        if(coinBase !== coinConversion) {
+            return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).subscribe((data)=> {
+                console.log(data)
+            })
+        } else {
+           return console.log('A moeda base é igual a moeda de conversão!')
+        }
+      
     }
 }

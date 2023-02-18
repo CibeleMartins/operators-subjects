@@ -17,10 +17,8 @@ export class ConversionDashboardComponent {
   constructor(private coinService: CoinService) {}
 
   ngOnInit( ) {
-
-    console.log(this.selectedCoinBase)
     this.coinService.getLegendCoins().subscribe({
-      next: (data) => {console.log(data), this.coinsConversionOption = data },
+      next: (data) => {this.coinsConversionOption = data },
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!') 
     })
@@ -32,6 +30,8 @@ export class ConversionDashboardComponent {
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {
-    console.log(valueCoin, coinBase, coinConversion)
+    console.log(parseFloat(valueCoin), coinBase, coinConversion)
+
+    this.coinService.convertCoins(parseFloat(valueCoin), coinBase, coinConversion)
   }
 }
