@@ -36,9 +36,10 @@ export class CoinService {
                 highPrice: parseFloat(data.BTCBRL.high),
                 lowPrice: parseFloat(data.BTCBRL.high)
             }]
-
-        })).subscribe((data) => {
-            console.log(data)
+        })).subscribe({
+            next: (data) => data,
+            error: (e) => console.error(e),
+            complete: () => console.info('Requisição feita com sucesso!') 
         })
     }
 }
