@@ -41,21 +41,16 @@ export class CoinService {
     }
 
     getLegendCoins() {
-        return this.http.get('https://api.frankfurter.app/currencies').pipe(map((data)=> {
-           return Object.entries(data).map((i)=> i[0])
+        return this.http.get('https://api.frankfurter.app/currencies').pipe(map((data) => {
+            return Object.entries(data).map((i) => i[0])
         }))
     }
 
 
     convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
-
-        if(coinBase !== coinConversion) {
-            return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).subscribe((data)=> {
-                console.log(data)
-            })
-        } else {
-           return console.log('A moeda base é igual a moeda de conversão!')
-        }
-      
+     
+        return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).pipe(map(data => {
+            return Object.values(data)[3]
+        }))
     }
 }
