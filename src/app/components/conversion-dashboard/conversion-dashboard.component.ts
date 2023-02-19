@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CoinService } from 'src/app/services/CoinService.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CoinService } from 'src/app/services/CoinService.service';
   templateUrl: './conversion-dashboard.component.html',
   styleUrls: ['./conversion-dashboard.component.scss']
 })
-export class ConversionDashboardComponent {
+export class ConversionDashboardComponent implements OnInit {
 
   coinsConversionOption!: string[];
   displayConverter!: boolean;

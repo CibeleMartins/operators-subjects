@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CoinPrice, CoinService } from 'src/app/services/CoinService.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CoinPrice, CoinService } from 'src/app/services/CoinService.service';
   templateUrl: './value-coins.component.html',
   styleUrls: ['./value-coins.component.scss']
 })
-export class ValueCoinsComponent {
+export class ValueCoinsComponent implements OnInit {
 
   coins: CoinPrice[] | undefined;
 
