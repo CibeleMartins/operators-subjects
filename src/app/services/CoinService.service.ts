@@ -25,22 +25,32 @@ export class CoinService {
         return this.http.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL').pipe(map((data: any) => {
             return [this.usd = {
                 code: data.USDBRL.code,
-                highPrice: parseFloat(data.USDBRL.high),
-                lowPrice: parseFloat(data.USDBRL.low)
+                highPrice: parseFloat(parseFloat(data.USDBRL.high).toFixed(2)),
+                lowPrice: parseFloat(parseFloat(data.USDBRL.low).toFixed(2)),
+                percentageVariation: parseFloat(data.USDBRL.pctChange),
+                saleValue: parseFloat(parseFloat(data.USDBRL.ask).toFixed(2)),
+                buyValue: parseFloat(parseFloat(data.USDBRL.bid).toFixed(2))
             },
 
             this.eur = {
                 code: data.EURBRL.code,
-                highPrice: parseFloat(data.EURBRL.high),
-                lowPrice: parseFloat(data.EURBRL.low)
+                highPrice: parseFloat(parseFloat(data.EURBRL.high).toFixed(2)),
+                lowPrice: parseFloat(parseFloat(data.EURBRL.low).toFixed(2)),
+                percentageVariation: parseFloat(data.EURBRL.pctChange),
+                saleValue: parseFloat(parseFloat(data.EURBRL.ask).toFixed(2)),
+                buyValue: parseFloat(parseFloat(data.EURBRL.bid).toFixed(2))
             },
 
             this.btc = {
                 code: data.BTCBRL.code,
-                highPrice: parseFloat(data.BTCBRL.high),
-                lowPrice: parseFloat(data.BTCBRL.low)
+                highPrice: parseFloat(parseFloat(data.BTCBRL.high).toFixed(2)),
+                lowPrice: parseFloat(parseFloat(data.BTCBRL.low).toFixed(2)),
+                percentageVariation: parseFloat(data.BTCBRL.pctChange),
+                saleValue: parseFloat(parseFloat(data.BTCBRL.ask).toFixed(2)),
+                buyValue: parseFloat(parseFloat(data.BTCBRL.bid).toFixed(2))
             }]
         }))
+
 
     }
 
@@ -54,7 +64,8 @@ export class CoinService {
     convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
      
         return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).pipe(map(data => {
-            return Object.values(data)[3]
+            let result = Object.values(data)[3]
+            return parseFloat(Object.values(result).toString()).toFixed(2)
         }))
     }
 }

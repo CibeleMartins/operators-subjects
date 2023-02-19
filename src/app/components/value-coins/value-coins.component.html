@@ -2,11 +2,11 @@
   <div *ngFor="let coin of coins" class="coin">
     <p class="price">{{ coin.code }}</p>
     <p class="price">
-      {{coin.highPrice.toFixed(2)}}
+      {{coin.highPrice}}
       <img class="img-coin" src="../../../assets//arrowUp.svg"/>
     </p>
     <p class="price" >
-      {{coin.lowPrice.toFixed(2)}}
+      {{coin.lowPrice}}
       <img class="img-coin" src="../../../assets//arrowDown.svg"/>
     </p>
   </div>

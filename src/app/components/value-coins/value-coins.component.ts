@@ -14,7 +14,7 @@ export class ValueCoinsComponent {
 
   ngOnInit() {
     this.coinService.getCurrencyQuote().subscribe({
-      next: (data) =>  this.coins = data,
+      next: (data) =>  {this.coins = data, console.log(this.coins)},
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!') 
   })}
