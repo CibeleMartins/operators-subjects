@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { CoinService } from 'src/app/services/CoinService.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
@@ -17,7 +18,7 @@ export class GraphicComponent implements OnInit {
   coinPercentageVariationValue: any[] = [];
 
 
-  constructor(private coinService: CoinService) {
+  constructor(private coinService: CoinService, private breakpointService: BreakpointObserver) {
     Chart.register(...registerables);
   }
 
@@ -71,6 +72,7 @@ export class GraphicComponent implements OnInit {
           },
           options: {
             responsive: true,
+            maintainAspectRatio: false,
             showLine: true,
             plugins: {
               legend: {
@@ -83,7 +85,6 @@ export class GraphicComponent implements OnInit {
       }
 
     })
-
   }
 }
 
