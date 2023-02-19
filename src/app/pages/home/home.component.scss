@@ -22,3 +22,28 @@
         }
       }
 }
+.main-small {
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  animation: colors 15s ease infinite;
+  
+  @keyframes colors {
+
+      8% {
+        background-position: 0% 50%;
+      }
+    
+      50% {
+        background-position: 100% 50%;
+      }
+    
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+}
