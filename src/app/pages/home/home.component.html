@@ -1,5 +1,10 @@
 <div class="{{flexDirectionColumn ? 'main-small' : 'main'}}" (click)="closeConversor()">
-    <app-value-coins></app-value-coins>
+
+    <div class="info-coins-container">
+        <app-value-coins></app-value-coins>
+        <app-graphic></app-graphic>
+    </div>
+    
     <app-conversion-dashboard></app-conversion-dashboard>
-    <app-graphic></app-graphic>
+
 </div>

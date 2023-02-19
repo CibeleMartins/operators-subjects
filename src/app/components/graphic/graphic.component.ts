@@ -70,6 +70,7 @@ export class GraphicComponent implements OnInit {
             ]
           },
           options: {
+            responsive: true,
             showLine: true,
             plugins: {
               legend: {
