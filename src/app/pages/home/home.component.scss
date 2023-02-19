@@ -1,9 +1,24 @@
 .main {
     height: 100vh;
     width: 100%;
-    background:  linear-gradient(180deg, #e6ff99 0, #ceff9b 16.67%, #b5ff9d 33.33%, #9df29d 50%, #86e49d 66.67%, #72d89d 83.33%, #60ce9e 100%);
+    background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
     display:flex;
     align-items: center;
     justify-content: space-around;
-  
+    animation: colors 15s ease infinite;
+    
+    @keyframes colors {
+
+        8% {
+          background-position: 0% 50%;
+        }
+      
+        50% {
+          background-position: 100% 50%;
+        }
+      
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 }

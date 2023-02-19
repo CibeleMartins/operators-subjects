@@ -15,6 +15,7 @@ export class ConversionDashboardComponent {
   valueCoin!: string;
   conversionResult!: string;
 
+  result!: string;
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
@@ -26,15 +27,15 @@ export class ConversionDashboardComponent {
   }
 
   showConverter() {
-
     this.displayConverter = true;
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {
     console.log(parseFloat(valueCoin), coinBase, coinConversion)
 
+    // acho que aqui poderia tirar essa linha do next e fazer iddo no operador
     this.coinService.convertCoins(parseFloat(valueCoin), coinBase, coinConversion).subscribe({
-      next: (data) => { this.conversionResult = parseFloat(Object.values(data).toString()).toFixed(2) },
+      next: (data) => { this.conversionResult = parseFloat(Object.values(data).toString()).toFixed(2),  this.result = this.valueCoin + ' ' + this.selectedCoinBase + ' = ' + this.conversionResult + ' ' + this.selectedCoinConversion },
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!')
     })
