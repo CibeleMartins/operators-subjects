@@ -27,16 +27,16 @@ export class GraphicComponent implements OnInit {
         data.map((i) => {
           this.coinLabels.push(i.code)
           // console.log(this.graphic.data.labels)
-          console.log(this.coinLabels)
+          // console.log(this.coinLabels)
           this.coinBuyValue.push(i.buyValue)
           // console.log(this.graphic.data.datasets[0])
-          console.log(this.coinBuyValue)
+          // console.log(this.coinBuyValue)
           this.coinSaleValue.push(i.saleValue)
           // console.log(this.graphic.data.datasets[1])
-          console.log(this.coinSaleValue)
+          // console.log(this.coinSaleValue)
           this.coinPercentageVariationValue.push(i.percentageVariation)
           // console.log(this.graphic.data.datasets[2])
-          console.log(this.coinPercentageVariationValue)
+          // console.log(this.coinPercentageVariationValue)
         })
       },
       error: (e) => console.error(e),

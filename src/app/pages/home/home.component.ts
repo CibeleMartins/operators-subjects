@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
@@ -7,15 +7,16 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   flexDirectionColumn:boolean = false
 
   constructor(private breakpointService: BreakpointObserver){
 
   }
-  closeConversor() {
-    // this.breakpointService.observe(Breakpoints.Small).subscribe((result)=> {
+
+  ngOnInit() {
+     // this.breakpointService.observe(Breakpoints.Small).subscribe((result)=> {
 
     //   this.flexDirection = ''
     //   if(result.matches){
@@ -25,14 +26,20 @@ export class HomeComponent {
 
     this.breakpointService.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((result)=> {
 
-      // this.flexDirectionColumn = false;
+      this.flexDirectionColumn = false;
       if(result.breakpoints[Breakpoints.Small]){
+
+        console.log('small')
         this.flexDirectionColumn = true;
       }
 
       if(result.breakpoints[Breakpoints.XSmall]){
+        console.log('Xsmall')
         this.flexDirectionColumn = true;
       }
     })
+  }
+  closeConversor() {
+   
   }
 }
