@@ -48,18 +48,21 @@ export class GraphicComponent implements OnInit {
             labels: this.coinLabels,
             datasets: [
               {
+                label: 'Valor de compra',
                 data: this.coinBuyValue,
                 borderColor: '#32F900',
                 fill: false
               },
 
               {
+                label: 'Valor de venda',
                 data: this.coinSaleValue,
                 borderColor: '#6CC6CB',
                 fill: false,
               },
 
               {
+                label: 'Porcentagem de variação',
                 data: this.coinPercentageVariationValue,
                 borderColor: '#FF4500',
                 fill: false,
