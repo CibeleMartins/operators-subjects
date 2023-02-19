@@ -69,7 +69,6 @@ export class GraphicComponent implements OnInit {
               }
             ]
           },
-
           options: {
             showLine: true,
             plugins: {
