@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { SnackbarFeedbackComponent } from '../components/snackbar-feedback/snackbar-feedback.component';
+import { SnackbarFeedbackComponent } from "../components/snackbar-feedback/snackbar-feedback.component";
 
 
 @Injectable({ providedIn: 'root' })

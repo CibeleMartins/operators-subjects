@@ -3,8 +3,8 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
-    // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
-    background-image: url('../../../assets/homeBackground.jpg');
+    background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
+    // background-image: url('../../../assets/homeBackground.jpg');
     background-attachment: fixed;
     display:flex;
     align-items: center;
@@ -30,8 +30,8 @@
   height: 100vh;
   width: 100%;
   flex-direction: column;
-  background-image: url('../../../assets/homeBackground.jpg');
-  // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
+  // background-image: url('../../../assets/homeBackground.jpg');
+  background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
   display:flex;
   align-items: center;
   justify-content: space-around;
@@ -55,6 +55,15 @@
 
 .info-coins-container {
   display: flex;
+  width: 90%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.info-coins-container-large-medium {
+  display: flex;
+  width: 50%;
   height: 100vh;
   flex-direction: column;
   justify-content: space-around;
@@ -62,6 +71,14 @@
 
 .converter-container {
   height: 30vh;
+  width: 30%;
   align-items: center;
-  margin-left: 35px;
+
+}
+
+.converter-container-small-xSmal {
+  height: 30vh;
+  width: 80%;
+  align-items: center;
+
 }

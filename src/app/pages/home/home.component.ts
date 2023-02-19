@@ -10,6 +10,8 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 export class HomeComponent implements OnInit {
 
   flexDirectionColumn:boolean = false
+  isLargeOrMedium:boolean = false
+  isSmallorXsmall: boolean = false
 
   constructor(private breakpointService: BreakpointObserver){
 
@@ -24,18 +26,33 @@ export class HomeComponent implements OnInit {
     //   }
     // })
 
-    this.breakpointService.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((result)=> {
+    this.breakpointService.observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium, Breakpoints.Large]).subscribe((result)=> {
 
       this.flexDirectionColumn = false;
+      this.isLargeOrMedium = false
+      this. isSmallorXsmall = false
       if(result.breakpoints[Breakpoints.Small]){
 
         console.log('small')
         this.flexDirectionColumn = true;
+        this.isSmallorXsmall = true
       }
 
       if(result.breakpoints[Breakpoints.XSmall]){
         console.log('Xsmall')
         this.flexDirectionColumn = true;
+        this.isSmallorXsmall = true
+      }
+
+      if(result.breakpoints[Breakpoints.Medium]){
+        console.log('Medium')
+        this.isLargeOrMedium = true
+      
+      }
+
+      if(result.breakpoints[Breakpoints.Large]){
+        console.log('Large')
+        this.isLargeOrMedium= true
       }
     })
   }

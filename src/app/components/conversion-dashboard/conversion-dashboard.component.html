@@ -1,4 +1,4 @@
-<div [ngStyle]="{width: '300px', height: '30vh' , display: 'flex', alignItems: 'center', justifyContent: 'center'}">
+<div [ngStyle]="{width: '100%', height: '30vh' , display: 'flex', alignItems: 'center', justifyContent: 'center'}">
   <button id="show-converter-action" *ngIf="!displayConverter" (click)="showConverter()">
     <span class="material-symbols-outlined"> currency_exchange </span>
   </button>
@@ -14,7 +14,7 @@
       </select>
     </div>
 
-    <div [ngStyle]="{display: 'flex', justifyContent: 'space-between'}">
+    <div [ngStyle]="{display: 'flex', justifyContent: 'space-between', padding: '1em'}">
         <p>{{result}}</p>
         <button id="convert-action" type="button" (click)="convert(valueCoin, selectedCoinBase, selectedCoinConversion)">Converter</button>
     </div>

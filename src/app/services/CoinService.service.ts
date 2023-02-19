@@ -62,7 +62,7 @@ export class CoinService {
 
 
     convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
-     
+
         return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).pipe(map(data => {
             let result = Object.values(data)[3]
             return parseFloat(Object.values(result).toString()).toFixed(2)
