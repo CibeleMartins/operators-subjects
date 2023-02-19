@@ -9,6 +9,7 @@ import { ValueCoinsComponent } from './components/value-coins/value-coins.compon
 import { GraphicComponent } from './components/graphic/graphic.component';
 import { ConversionDashboardComponent } from './components/conversion-dashboard/conversion-dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SnackbarFeedbackComponent } from './components/snackbar-feedback/snackbar-feedback.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     ValueCoinsComponent,
     GraphicComponent,
     ConversionDashboardComponent,
-    HomeComponent
+    HomeComponent,
+    SnackbarFeedbackComponent
   ],
   imports: [
     BrowserModule,
