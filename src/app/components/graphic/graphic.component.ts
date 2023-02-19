@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
+import { CoinService } from 'src/app/services/CoinService.service';
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
@@ -9,26 +10,78 @@ export class GraphicComponent implements OnInit {
   @ViewChild('graphic', { static: true })
   refGraphic!: ElementRef;
 
-  ngOnInit() {
-    new Chart(this.refGraphic.nativeElement, {
-      type: 'line',
-      data: {
-        labels: ['um titulo pra cada valor'],
-        datasets: [
-          {data: ['valores a exibir no gráfico'],
-          borderColor: 'cor da linha ',
-          fill: false},
-        
-          {data: ['outros valores'],
-          borderColor: 'cor da linha ',
-          fill: false,},
-          
-          {data: ['outros valores'],
-          borderColor: 'cor da linha ',
-          fill: false,}
-        ]
-      },
-    })
+  graphic: any = []
+  coinLabels: any[] = [];
+  coinBuyValue: any[] = [];
+  coinSaleValue: any[] = [];
+  coinPercentageVariationValue: any[] = [];
+
+
+  constructor(private coinService: CoinService) {
+    Chart.register(...registerables);
   }
 
+  ngOnInit() {
+    this.coinService.getCurrencyQuote().subscribe({
+      next: (data) => {
+        data.map((i) => {
+          this.coinLabels.push(i.code)
+          // console.log(this.graphic.data.labels)
+          console.log(this.coinLabels)
+          this.coinBuyValue.push(i.buyValue)
+          // console.log(this.graphic.data.datasets[0])
+          console.log(this.coinBuyValue)
+          this.coinSaleValue.push(i.saleValue)
+          // console.log(this.graphic.data.datasets[1])
+          console.log(this.coinSaleValue)
+          this.coinPercentageVariationValue.push(i.percentageVariation)
+          // console.log(this.graphic.data.datasets[2])
+          console.log(this.coinPercentageVariationValue)
+        })
+      },
+      error: (e) => console.error(e),
+      complete: () => {
+        console.info('Requisição feita com sucesso!')
+        return this.graphic = new Chart('canvas', {
+          type: 'line',
+          data: {
+            labels: this.coinLabels,
+            datasets: [
+              {
+                data: this.coinBuyValue,
+                borderColor: '#32F900',
+                fill: false
+              },
+
+              {
+                data: this.coinSaleValue,
+                borderColor: '#6CC6CB',
+                fill: false,
+              },
+
+              {
+                data: this.coinPercentageVariationValue,
+                borderColor: '#FF4500',
+                fill: false,
+              }
+            ]
+          },
+
+          options: {
+            showLine: true,
+            plugins: {
+              legend: {
+                display: false
+              }
+            }
+
+          }
+        })
+      }
+
+    })
+
+  }
 }
+
+
