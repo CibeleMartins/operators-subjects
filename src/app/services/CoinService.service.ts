@@ -5,8 +5,12 @@ import { HttpClient } from '@angular/common/http';
 export interface CoinPrice {
     code: string,
     highPrice: number,
-    lowPrice: number
+    lowPrice: number,
+    percentageVariation: number,
+    saleValue: number,
+    buyValue: number
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class CoinService {
