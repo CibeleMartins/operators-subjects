@@ -25,10 +25,21 @@
   align-items: center;
 }
 
+.code {
+  color: white;
+  display: flex;
+  letter-spacing: 2px;
+  align-items: center;
+  width: 100px;
+  // max-width: 100%;
+  justify-content: space-evenly;
+}
+
 .price {
+
   display: flex;
   align-items: center;
   width: 100px;
-  max-width: 100%;
+  // max-width: 100%;
   justify-content: space-evenly;
 }

@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ApplicationFeatures } from 'src/app/services/ApplicationFeatures.service';
+import { Component, OnInit } from '@angular/core';
 import { CoinService } from 'src/app/services/CoinService.service';
 
 @Component({
@@ -7,10 +6,7 @@ import { CoinService } from 'src/app/services/CoinService.service';
   templateUrl: './conversion-dashboard.component.html',
   styleUrls: ['./conversion-dashboard.component.scss']
 })
-export class ConversionDashboardComponent implements OnInit, AfterViewInit{
-
-  @ViewChild('converter', {static: true})
-  refConverter!: ElementRef;
+export class ConversionDashboardComponent implements OnInit{
   
   coinsConversionOption!: string[];
   displayConverter!: boolean;
@@ -18,9 +14,8 @@ export class ConversionDashboardComponent implements OnInit, AfterViewInit{
   selectedCoinConversion: string = 'USD'
   valueCoin!: string;
   result!: string;
-  converterIsClose = false
 
-  constructor(private coinService: CoinService, private applicationService: ApplicationFeatures) { }
+  constructor(private coinService: CoinService) { }
 
   ngOnInit() {
     this.coinService.getLegendCoins().subscribe({
@@ -36,14 +31,10 @@ export class ConversionDashboardComponent implements OnInit, AfterViewInit{
   showConverter() {
     
     this.displayConverter = true
-    this.converterIsClose = true
   }
 
-  ngAfterViewInit() {
-      console.log('afterview')
-       this.applicationService.localRefConverter.subscribe((data)=> {
-        this.converterIsClose = false
-       })
+  closeConverter() {
+    this.displayConverter = false
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {

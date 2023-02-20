@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Chart, Colors, registerables } from 'chart.js';
 import { CoinService } from 'src/app/services/CoinService.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
@@ -19,7 +19,8 @@ export class GraphicComponent implements OnInit {
 
 
   constructor(private coinService: CoinService, private breakpointService: BreakpointObserver) {
-    Chart.register(...registerables);
+    Chart.register(...registerables, Colors);
+    Chart.defaults.color = '#FFFF'
   }
 
   ngOnInit() {
@@ -52,7 +53,8 @@ export class GraphicComponent implements OnInit {
                 label: 'Valor de compra',
                 data: this.coinBuyValue,
                 borderColor: '#32F900',
-                fill: false
+                fill: false,
+                
               },
 
               {
@@ -71,13 +73,17 @@ export class GraphicComponent implements OnInit {
             ]
           },
           options: {
+            
             responsive: true,
             maintainAspectRatio: false,
             showLine: true,
             plugins: {
               legend: {
-                display: false
-              }
+                display: false,
+
+              },
+
+              
             }
 
           }

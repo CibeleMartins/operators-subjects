@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { ApplicationFeatures } from 'src/app/services/ApplicationFeatures.service';
 
 @Component({
   selector: 'app-home',

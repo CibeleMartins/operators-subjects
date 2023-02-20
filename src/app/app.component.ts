@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationFeatures } from './services/ApplicationFeatures.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,5 @@ import { ApplicationFeatures } from './services/ApplicationFeatures.service';
 })
 export class AppComponent  {
   title = 'Fast Coins';
-
-
-
 
 }
