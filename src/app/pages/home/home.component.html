@@ -1,4 +1,6 @@
-<div class="{{flexDirectionColumn ? 'main-small' : 'main'}}" (click)="closeConversor()">
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div class="{{flexDirectionColumn ? 'main-small' : 'main'}}" >
 
     <div class="{{isLargeOrMedium ? 'info-coins-container-large-medium' : 'info-coins-container'}}">
         <app-value-coins></app-value-coins>

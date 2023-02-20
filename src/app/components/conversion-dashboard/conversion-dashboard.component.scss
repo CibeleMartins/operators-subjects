@@ -79,3 +79,21 @@ input {
   // background: linear-gradient(45deg, #B51F1A,  #771D32);
   background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
 }
+
+#close-container {
+  display:flex ;
+  width: 98%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#close-action {
+  font-size: 10px;
+  background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 100px;
+  font-weight:600;
+  cursor: pointer;
+}

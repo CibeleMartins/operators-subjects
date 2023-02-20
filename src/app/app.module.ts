@@ -9,8 +9,9 @@ import { ValueCoinsComponent } from './components/value-coins/value-coins.compon
 import { GraphicComponent } from './components/graphic/graphic.component';
 import { ConversionDashboardComponent } from './components/conversion-dashboard/conversion-dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SnackbarFeedbackComponent } from './components/snackbar-feedback/snackbar-feedback.component';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     GraphicComponent,
     ConversionDashboardComponent,
     HomeComponent,
-    SnackbarFeedbackComponent
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

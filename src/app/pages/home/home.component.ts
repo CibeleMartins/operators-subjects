@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Subscription} from 'rxjs'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ApplicationFeatures } from 'src/app/services/ApplicationFeatures.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +10,19 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 })
 export class HomeComponent implements OnInit {
 
-  flexDirectionColumn:boolean = false
-  isLargeOrMedium:boolean = false
+  flexDirectionColumn: boolean = false
+  isLargeOrMedium: boolean = false
   isSmallorXsmall: boolean = false
+  isLoading: boolean = false
 
-  constructor(private breakpointService: BreakpointObserver){
+  storeSubscription!: Subscription;
+
+  constructor(private breakpointService: BreakpointObserver) {
 
   }
 
   ngOnInit() {
-     // this.breakpointService.observe(Breakpoints.Small).subscribe((result)=> {
+    // this.breakpointService.observe(Breakpoints.Small).subscribe((result)=> {
 
     //   this.flexDirection = ''
     //   if(result.matches){
@@ -26,38 +30,34 @@ export class HomeComponent implements OnInit {
     //   }
     // })
 
-    this.breakpointService.observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium, Breakpoints.Large]).subscribe((result)=> {
+    this.breakpointService.observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium, Breakpoints.Large]).subscribe((result) => {
 
       this.flexDirectionColumn = false;
       this.isLargeOrMedium = false
-      this. isSmallorXsmall = false
-      if(result.breakpoints[Breakpoints.Small]){
+      this.isSmallorXsmall = false
+      if (result.breakpoints[Breakpoints.Small]) {
 
         console.log('small')
         this.flexDirectionColumn = true;
         this.isSmallorXsmall = true
       }
 
-      if(result.breakpoints[Breakpoints.XSmall]){
+      if (result.breakpoints[Breakpoints.XSmall]) {
         console.log('Xsmall')
         this.flexDirectionColumn = true;
         this.isSmallorXsmall = true
       }
 
-      if(result.breakpoints[Breakpoints.Medium]){
+      if (result.breakpoints[Breakpoints.Medium]) {
         console.log('Medium')
         this.isLargeOrMedium = true
-      
       }
 
-      if(result.breakpoints[Breakpoints.Large]){
+      if (result.breakpoints[Breakpoints.Large]) {
         console.log('Large')
-        this.isLargeOrMedium= true
+        this.isLargeOrMedium = true
       }
     })
   }
-  
-  closeConversor() {
-   
-  }
+
 }

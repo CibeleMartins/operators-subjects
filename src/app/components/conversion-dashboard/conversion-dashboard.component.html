@@ -3,7 +3,9 @@
     <span class="material-symbols-outlined"> currency_exchange </span>
   </button>
 
-  <div id="converter-coin" *ngIf="displayConverter">
+  <div id="converter-coin" *ngIf="displayConverter && converterIsClose" #converter>
+
+    <div id="close-container"><div id="close-action">X</div></div>
     <div class="coin-action-control">
       <input  [(ngModel)]="valueCoin" type="number" placeholder="Valor" />
       <select name="coin1" id="coin-action" [(ngModel)]="selectedCoinBase">
