@@ -11,7 +11,6 @@ import { ConversionDashboardComponent } from './components/conversion-dashboard/
 import { HomeComponent } from './pages/home/home.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { LoadingComponent } from './components/loading/loading.component';
 import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './services/loading.interceptor';
@@ -23,7 +22,6 @@ import { LoadingInterceptor } from './services/loading.interceptor';
     GraphicComponent,
     ConversionDashboardComponent,
     HomeComponent,
-    LoadingComponent,
     CryptoInfosComponent,
     SpinnerComponent
   ],
