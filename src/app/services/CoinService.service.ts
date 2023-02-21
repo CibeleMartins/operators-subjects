@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 
 export interface CoinPrice {
     code: string,
-    highPrice: number,
-    lowPrice: number,
-    percentageVariation: number,
-    saleValue: number,
-    buyValue: number
+    highPrice: string,
+    lowPrice: string,
+    percentageVariation: string,
+    saleValue: string,
+    buyValue: string
 }
 
 
@@ -19,36 +19,41 @@ export class CoinService {
     private eur!: CoinPrice;
     private btc!: CoinPrice;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,) { }
+
+
+    formatPricesInBRL(price: any) {
+
+        const numberTwoDecimal = parseFloat(parseFloat(price).toFixed(2))
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(numberTwoDecimal) 
+    }
 
     getCurrencyQuote() {
         return this.http.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL').pipe(map((data: any) => {
             return [this.usd = {
                 code: data.USDBRL.code,
-                highPrice: parseFloat(parseFloat(data.USDBRL.high).toFixed(2)),
-                lowPrice: parseFloat(parseFloat(data.USDBRL.low).toFixed(2)),
-                percentageVariation: parseFloat(data.USDBRL.pctChange),
-                saleValue: parseFloat(parseFloat(data.USDBRL.ask).toFixed(2)),
-                buyValue: parseFloat(parseFloat(data.USDBRL.bid).toFixed(2))
-            },
+                highPrice: this.formatPricesInBRL(data.USDBRL.high) ,
+                lowPrice: this.formatPricesInBRL(data.USDBRL.low),
+                percentageVariation: this.formatPricesInBRL(data.USDBRL.pctChange),
+                saleValue: this.formatPricesInBRL(data.USDBRL.ask),
+                buyValue:this.formatPricesInBRL(data.USDBRL.bid)            },
 
             this.eur = {
                 code: data.EURBRL.code,
-                highPrice: parseFloat(parseFloat(data.EURBRL.high).toFixed(2)),
-                lowPrice: parseFloat(parseFloat(data.EURBRL.low).toFixed(2)),
-                percentageVariation: parseFloat(data.EURBRL.pctChange),
-                saleValue: parseFloat(parseFloat(data.EURBRL.ask).toFixed(2)),
-                buyValue: parseFloat(parseFloat(data.EURBRL.bid).toFixed(2))
-            },
+                highPrice: this.formatPricesInBRL(data.EURBRL.high),
+                lowPrice: this.formatPricesInBRL(data.EURBRL.low),
+                percentageVariation: this.formatPricesInBRL(data.EURBRL.pctChange),
+                saleValue: this.formatPricesInBRL(data.EURBRL.ask),
+                buyValue:this.formatPricesInBRL(data.EURBRL.bid)           },
 
             this.btc = {
                 code: data.BTCBRL.code,
-                highPrice: parseFloat(parseFloat(data.BTCBRL.high).toFixed(2)),
-                lowPrice: parseFloat(parseFloat(data.BTCBRL.low).toFixed(2)),
-                percentageVariation: parseFloat(data.BTCBRL.pctChange),
-                saleValue: parseFloat(parseFloat(data.BTCBRL.ask).toFixed(2)),
-                buyValue: parseFloat(parseFloat(data.BTCBRL.bid).toFixed(2))
-            }]
+                highPrice: this.formatPricesInBRL(data.BTCBRL.high),
+                lowPrice: this.formatPricesInBRL(data.BTCBRL.low),
+                percentageVariation: this.formatPricesInBRL(data.BTCBRL.pctChange),
+                saleValue: this.formatPricesInBRL(data.BTCBRL.ask),
+                buyValue: this.formatPricesInBRL(data.BTCBRL.bid)          }
+        ]
         }))
 
 
