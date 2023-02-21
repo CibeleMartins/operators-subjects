@@ -73,7 +73,13 @@ export class GraphicComponent implements OnInit {
             ]
           },
           options: {
-            
+            scales: {
+              y: {
+                ticks: {
+                  display: false,
+                }
+              }
+            },
             responsive: true,
             maintainAspectRatio: false,
             showLine: true,
@@ -82,8 +88,7 @@ export class GraphicComponent implements OnInit {
                 display: false,
 
               },
-
-              
+            
             }
 
           }
