@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     GraphicComponent,
     ConversionDashboardComponent,
     HomeComponent,
-    LoadingComponent
+    LoadingComponent,
+    CryptoInfosComponent
   ],
   imports: [
     BrowserModule,

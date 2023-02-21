@@ -24,8 +24,6 @@ export class ConversionDashboardComponent implements OnInit{
       complete: () => console.info('Requisição feita com sucesso!')
     })
 
-    // console.log('ref')
-    // this.applicationService.localRefConverter.next(this.refConverter);
   }
 
   showConverter() {
@@ -38,7 +36,6 @@ export class ConversionDashboardComponent implements OnInit{
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {
-    // console.log(parseFloat(valueCoin), coinBase, coinConversion)
     if(coinBase !== coinConversion) {
       this.coinService.convertCoins(parseFloat(valueCoin), coinBase, coinConversion).subscribe({
         next: (data: string) => { this.result = this.valueCoin + ' ' + this.selectedCoinBase + ' = ' + data + ' ' + this.selectedCoinConversion },
@@ -47,7 +44,6 @@ export class ConversionDashboardComponent implements OnInit{
       })
     } else {
       alert('Moeda base e de conversão iguais, não foi possível converter.')
-      // this.featuresApplicationService.openSnackBar(null, null, null, 'Moeda base e de conversão iguais, não foi possível converter.', '')
     }
 
   }

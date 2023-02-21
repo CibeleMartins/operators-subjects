@@ -1,9 +1,8 @@
 
-
 #show-converter-action {
     border: none;
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.589);
     border-radius: 14px;
     background-color: #aceb2f;
     animation: slide-down 300ms ease-out forwards;
@@ -60,8 +59,6 @@
   letter-spacing: 2px;
   border-radius: 10px;
   background-color: #aceb2f;
-  // background: linear-gradient(45deg, #B51F1A,  #771D32);
-  // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
 }
 input {
   border: none;
@@ -81,8 +78,6 @@ input {
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
-  // background: linear-gradient(45deg, #B51F1A,  #771D32);
-  // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
   background-color: #aceb2f;
 }
 
@@ -96,6 +91,5 @@ input {
 #close-action {
 
   font-size: small;
-  // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
   cursor: pointer;
 }
