@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './services/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.com
     ConversionDashboardComponent,
     HomeComponent,
     LoadingComponent,
-    CryptoInfosComponent
+    CryptoInfosComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.com
     MatSnackBarModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
