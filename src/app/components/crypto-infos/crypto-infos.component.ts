@@ -16,5 +16,7 @@ export class CryptoInfosComponent {
     this.cryptoService.getCryptoInfos().subscribe((data)=> {
       console.log(data)
     })
+
+    console.log(this.cryptoService.cryptosInfos)
   }
 }
