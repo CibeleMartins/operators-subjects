@@ -59,7 +59,7 @@
   padding: 5px;
   letter-spacing: 2px;
   border-radius: 10px;
-  background-color: white;
+  background-color: #aceb2f;
   // background: linear-gradient(45deg, #B51F1A,  #771D32);
   // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
 }
@@ -83,7 +83,7 @@ input {
   border-radius: 14px;
   // background: linear-gradient(45deg, #B51F1A,  #771D32);
   // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
-  background-color: white;
+  background-color: #aceb2f;
 }
 
 #close-container {
@@ -94,13 +94,8 @@ input {
 }
 
 #close-action {
-  font-size: 10px;
+
+  font-size: small;
   // background: linear-gradient(45deg, #6CC6CB,  #A0F1EA);
-  background-color: white;
-  padding: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 100px;
-  font-weight:600;
   cursor: pointer;
 }

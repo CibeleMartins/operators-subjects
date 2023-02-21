@@ -5,7 +5,7 @@
 
   <div id="converter-coin" *ngIf="displayConverter">
 
-    <div id="close-container"><div id="close-action" (click)="closeConverter()">X</div></div>
+    <div id="close-container"><span id="close-action" class="material-symbols-outlined" (click)="closeConverter()"> close</span></div>
     <div class="coin-action-control">
       <select name="coin1" id="coin-action" [(ngModel)]="selectedCoinBase">
         <option *ngFor="let coinOption of coinsConversionOption">{{coinOption}}</option>
