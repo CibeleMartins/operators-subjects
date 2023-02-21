@@ -1,9 +1,9 @@
 <app-loading *ngIf="isLoading"></app-loading>
-<app-crypto-infos></app-crypto-infos>
 <div class="{{flexDirectionColumn ? 'main-small' : 'main'}}" >
 
     <div class="{{isLargeOrMedium ? 'info-coins-container-large-medium' : 'info-coins-container'}}">
         <app-value-coins></app-value-coins>
+        <app-crypto-infos></app-crypto-infos>
         <app-graphic></app-graphic>
     </div>
     
