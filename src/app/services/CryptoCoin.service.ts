@@ -9,7 +9,6 @@ export interface CryptoInfo {
     priceVariationPercentage: string
 }
 
-
 @Injectable({ providedIn: 'root' })
 export class CryptoCoinService {
 
@@ -22,7 +21,7 @@ export class CryptoCoinService {
     getCryptoInfos() {
         return this.http.get('https://api1.binance.com/api/v3/ticker/24hr').pipe(map((i) => {
             Object.values(i).filter((i) => i.symbol.includes('BRL') ? i : '').map((i) => {
-                this.cryptosInfos.push({ symbol: '', name: i.symbol, buyValue: i.bidPrice, priceVariationPercentage: i.priceChangePercent })
+                this.cryptosInfos.push(this.crypto = { symbol: '', name: i.symbol, buyValue: i.bidPrice, priceVariationPercentage: i.priceChangePercent })
             })
             return this.cryptosInfos
         }))
