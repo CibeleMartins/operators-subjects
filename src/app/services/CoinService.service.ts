@@ -6,7 +6,7 @@ export interface CoinPrice {
     code: string,
     highPrice: string,
     lowPrice: string,
-    percentageVariation: string,
+    percentageVariation: number,
     saleValue: string,
     buyValue: string
 }
@@ -34,7 +34,7 @@ export class CoinService {
                 code: data.USDBRL.code,
                 highPrice: this.formatPricesInBRL(data.USDBRL.high) ,
                 lowPrice: this.formatPricesInBRL(data.USDBRL.low),
-                percentageVariation: this.formatPricesInBRL(data.USDBRL.pctChange),
+                percentageVariation: parseFloat(parseFloat(data.USDBRL.pctChange).toFixed(2)),
                 saleValue: this.formatPricesInBRL(data.USDBRL.ask),
                 buyValue:this.formatPricesInBRL(data.USDBRL.bid)            },
 
@@ -42,7 +42,7 @@ export class CoinService {
                 code: data.EURBRL.code,
                 highPrice: this.formatPricesInBRL(data.EURBRL.high),
                 lowPrice: this.formatPricesInBRL(data.EURBRL.low),
-                percentageVariation: this.formatPricesInBRL(data.EURBRL.pctChange),
+                percentageVariation: parseFloat(parseFloat(data.EURBRL.pctChange).toFixed(2)),
                 saleValue: this.formatPricesInBRL(data.EURBRL.ask),
                 buyValue:this.formatPricesInBRL(data.EURBRL.bid)           },
 
@@ -50,7 +50,7 @@ export class CoinService {
                 code: data.BTCBRL.code,
                 highPrice: this.formatPricesInBRL(data.BTCBRL.high),
                 lowPrice: this.formatPricesInBRL(data.BTCBRL.low),
-                percentageVariation: this.formatPricesInBRL(data.BTCBRL.pctChange),
+                percentageVariation: parseFloat(parseFloat(data.BTCBRL.pctChange).toFixed(2)),
                 saleValue: this.formatPricesInBRL(data.BTCBRL.ask),
                 buyValue: this.formatPricesInBRL(data.BTCBRL.bid)          }
         ]
