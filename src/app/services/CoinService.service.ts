@@ -2,6 +2,7 @@ import { map } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 
+
 export interface CoinPrice {
     code: string,
     highPrice: string,

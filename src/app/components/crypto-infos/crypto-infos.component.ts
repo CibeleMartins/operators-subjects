@@ -41,12 +41,8 @@ export class CryptoInfosComponent {
         }
       
       })
-
       this.cryptoInfos = data
-
       this.cryptoInfos = this.cryptoInfos.filter((i: any)=> !this.coinsNotSymbol.includes((i.name.toLowerCase())))
-      console.log(data)
-      console.log(this.cryptoInfos)
     })
   }
 
