@@ -12,7 +12,6 @@ export interface CoinPrice {
     buyValue: string
 }
 
-
 @Injectable({ providedIn: 'root' })
 export class CoinService {
 
@@ -56,10 +55,7 @@ export class CoinService {
                 buyValue: this.formatPricesInBRL(data.BTCBRL.bid)          }
         ]
         }))
-
-
     }
-
     getLegendCoins() {
         return this.http.get('https://api.frankfurter.app/currencies').pipe(map((data) => {
             return Object.entries(data).map((i) => i[0])
@@ -67,7 +63,7 @@ export class CoinService {
     }
 
     convertCoins(valueCoin: number, coinBase: string, coinConversion: string) {
-        return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=AXS`).pipe(map(data => {
+        return this.http.get(`https://api.frankfurter.app/latest?amount=${valueCoin}&from=${coinBase}&to=${coinConversion}`).pipe(map(data => {
             let result = Object.values(data)[3]
             return parseFloat(Object.values(result).toString()).toFixed(2)
         }))

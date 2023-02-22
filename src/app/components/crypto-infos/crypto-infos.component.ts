@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { CryptoCoinService } from 'src/app/services/CryptoCoin.service';
 
@@ -23,7 +24,7 @@ export class CryptoInfosComponent {
     'linkbrl'
   ]
 
-  constructor(private cryptoService: CryptoCoinService) {
+  constructor(private cryptoService: CryptoCoinService, private breakpointService: BreakpointObserver) {
 
   }
 
@@ -44,6 +45,7 @@ export class CryptoInfosComponent {
       this.cryptoInfos = data
       this.cryptoInfos = this.cryptoInfos.filter((i: any)=> !this.coinsNotSymbol.includes((i.name.toLowerCase())))
     })
+
   }
 
 

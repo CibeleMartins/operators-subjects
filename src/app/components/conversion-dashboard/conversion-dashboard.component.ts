@@ -23,7 +23,7 @@ export class ConversionDashboardComponent implements OnInit{
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!')
     })
-
+ 
   }
 
   showConverter() {
