@@ -4,6 +4,7 @@
     background-color: black;
     display: flex;
     flex-direction: row;
+    align-items: center;
     border-radius: 14px;
     overflow-x: scroll;
     &::-webkit-scrollbar {
@@ -24,6 +25,7 @@
 .slide-track {
     display: flex;
     width: calc(250*6);
+    justify-content: center;
     animation: slidescroll 80s linear infinite;
     
 }
