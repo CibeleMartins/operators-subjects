@@ -1,4 +1,4 @@
-# Angular Operadores e Subjects
+# Angular/RXJS - Operadores e Subjects
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
@@ -51,3 +51,35 @@ import {
 2 - Imagine que o operador map() é semelhante a função map() utilizada para percorrer arrays. Para cada um dos dados que passar pelo  pipe() e chegar no parâmetro da função assumida como argumento do operador map(), essa função vai fazer alguma transformação. Em sentido contínuo, também existe o operador filter(), que filtra os dados com base em uma condição.
 
 ## Sobre subjects
+<p>Os subjects são parecidos com EventEmitter/emissão de eventos em Angular. Mas só devem ser utilizados para comunicação entre componentes através de serviços. Nos casos em que houver um '@Output()' a melhor opção ainda é EventEmitter. Os Subjects são muito úteis para implementar comunicação entre componentes cruzados e também é uma forma mais recomendada porque são mais eficientes do que as emissões de evento nos bastidores. Eles devem ser importados do pacote 'rxjs', conforme abaixo:</p>
+
+```javascript
+```
+
+<p>Após isso, dentro do serviço o qual irá ser definido o Subject, basta criar uma propriedade na qual você possa atribuir uma instancia dele:</p>
+
+
+<p>E definir no tipo genérico os dados que serão emitidos por ele:</p>
+
+
+<p>No componente que você deseja emitir um dado, você pode chamar esse subject e o método next() e passar esse dado para o próximo componente, o qual pode ser qualquer outro componente da aplicação, acima ou abaixo na árvore de componentes:</p>
+
+
+
+<p>Já no componente que você deseja pegar/acessar esse dado emitido, você chama o subject e aciona o subscribe():</p>
+
+
+## Observações
+<p>1 - Subject é um tipo especial de observável. Nos observáveis também chamamos o método next(), mas de dentro deles quando o criamos ou quando comunicamos essa 'fase' do dado observado ao subscribe(). Já o Subject é mais ativo porque chamamos o next() passando um dado para o próximo componente que assinar/inscrever o dado observado e emitido por ele.</p>
+
+<p>1 - Assim como os observáveis criados  manualmente, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
+
+<p>Para isso, conforme essa documentação sobre [Observáveis](https://github.com/CibeleMartins/angularObservables), você deve armazenar a chamada do subscribe() em uma propriedade do tipo Subscription, importada do pacote rxjs:</p>
+
+
+```javascript
+```
+
+<p>E no ciclo de vida de destruição do componente, dentro de ngOnDestroy(), cancelar o subscribe() a partir desta propriedade chamando unsubscribe():</p>
+
+<p>Isso evita vazamentos de memória ou qualquer coisa do tipo, evitando que qualquer dado observável ou execução de código derivada de observáveis fiquem em execução ao deixar o componente/rota, o que melhora o desempenho da aplicação.</p>
