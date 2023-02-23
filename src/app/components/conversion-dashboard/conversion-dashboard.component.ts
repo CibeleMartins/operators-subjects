@@ -36,14 +36,15 @@ export class ConversionDashboardComponent implements OnInit{
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {
-    if(coinBase !== coinConversion) {
+
+    if(coinBase === coinConversion || !valueCoin) {
+      alert('Verifique o valor ou a moeda base e de conversão.')
+    } else {
       this.coinService.convertCoins(parseFloat(valueCoin), coinBase, coinConversion).subscribe({
         next: (data: string) => { this.result = this.valueCoin + ' ' + this.selectedCoinBase + ' = ' + data + ' ' + this.selectedCoinConversion },
         error: (e: any) => console.error(e),
         complete: () => console.info('Requisição feita com sucesso!')
       })
-    } else {
-      alert('Moeda base e de conversão iguais, não foi possível converter.')
     }
 
   }

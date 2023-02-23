@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <p>Os operadores são um recurso da biblioteca rxjs e servem para transformar dados observáveis antes de mostra-los na aplicação/antes de informar ao subscribe(). Isso pode ser feito manualmente dentro das funcões do subscribe(), ou até mesmo dentro de um observável caso o tenha criado, mas a medida que a lógica que envolve os dados observáveis vai ficando mais complexa em uma aplicação, os operadores podem ser uma boa opção.</p>
 
 ## Como utilizar oepradores
-<p> É possível implementá-los a partir do método -> pipe(); todo observável tem um método deste. O pipe pode ser imaginado como uma tubulação para os dados observados. A partir disso, você deve importar o operador que irá utilizar na sua tubulação de 'rxjs/operators', veja um exemplo abaixo:</p>
+<p> É possível implementá-los a partir do método -> pipe(); todo observável tem um método deste. O pipe pode ser imaginado como uma tubulação para os dados observados. Você deve importar o operador que irá utilizar na sua tubulação de 'rxjs/operators', veja um exemplo abaixo:</p>
 
 ```javascript
 import {
@@ -18,7 +18,7 @@ import {
 
 ```javascript
   getCurrencyQuote() {
-        return this.http.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL').pipe(map((data: any) => {}))}
+        return this.http.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL').pipe(map((data: any) => <-----{<-------} ))}
 ```
 <p>Essa função recebida como argumento no operador map(), recebe os dados observados que passaram pela tubulação em seu parâmetro:</p>
 
