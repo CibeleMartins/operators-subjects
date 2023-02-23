@@ -1,7 +1,7 @@
 # Angular/RXJS - Operadores e Subjects
 
 <p align="center">
-    <img src='./src/assets/logoDoc.png' alt="Logo" width="400">
+    <img src='./src/assets/logoDoc.png' alt="Logo" width="500">
   <p align="center">
      Sumário
       <p align="center">
@@ -16,10 +16,8 @@
         <br />
      <h1 align="center"></h1>
     </p>
+    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 </p>
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
 ## Sobre Operadores
 <p>Os operadores são um recurso da biblioteca rxjs e servem para transformar dados observáveis antes de mostra-los na aplicação/antes de informar ao subscribe(). Isso pode ser feito manualmente dentro das funcões do subscribe(), ou até mesmo dentro de um observável caso o tenha criado, mas a medida que a lógica que envolve os dados observáveis vai ficando mais complexa em uma aplicação, os operadores podem ser uma boa opção.</p>
