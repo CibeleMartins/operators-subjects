@@ -1,6 +1,7 @@
 import { map } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
+import { Subject } from "rxjs";
 
 
 export interface CoinPrice {
@@ -14,6 +15,8 @@ export interface CoinPrice {
 
 @Injectable({ providedIn: 'root' })
 export class CoinService {
+
+    displayDashboardConverter = new Subject<boolean>()
 
     private usd!: CoinPrice;
     private eur!: CoinPrice;

@@ -14,6 +14,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CryptoInfosComponent } from './components/crypto-infos/crypto-infos.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './services/loading.interceptor';
+import { ConvertActionComponent } from './components/convert-action/convert-action.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { LoadingInterceptor } from './services/loading.interceptor';
     ConversionDashboardComponent,
     HomeComponent,
     CryptoInfosComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ConvertActionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoinService } from 'src/app/services/CoinService.service';
+import {Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-conversion-dashboard',
@@ -15,6 +16,8 @@ export class ConversionDashboardComponent implements OnInit{
   valueCoin!: string;
   result!: string;
 
+  subjectSubscription!: Subscription;
+
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
@@ -23,16 +26,20 @@ export class ConversionDashboardComponent implements OnInit{
       error: (e) => console.error(e),
       complete: () => console.info('Requisição feita com sucesso!')
     })
- 
+
+    this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe((data)=> {this.displayConverter = data})
+
+    this.coinService.displayDashboardConverter.next(this.displayConverter)
   }
 
-  showConverter() {
+  // showConverter() {
     
-    this.displayConverter = true
-  }
+  //   this.displayConverter = true
+  // }
 
   closeConverter() {
     this.displayConverter = false
+    this.coinService.displayDashboardConverter.next(this.displayConverter)
   }
 
   convert(valueCoin: string, coinBase: string, coinConversion: string) {
@@ -47,6 +54,10 @@ export class ConversionDashboardComponent implements OnInit{
       })
     }
 
+  }
+
+  ngOnDestroy() {
+    this.subjectSubscription.unsubscribe()
   }
 
 }
