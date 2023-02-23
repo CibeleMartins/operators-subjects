@@ -1,4 +1,5 @@
 # Angular/RXJS - Operadores e Subjects
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
 <p align="center">
     <img src='./src/assets/logoDoc.png' alt="Logo" width="500">
@@ -16,7 +17,6 @@
         <br />
      <h1 align="center"></h1>
     </p>
-    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 </p>
 
 ## Sobre Operadores
