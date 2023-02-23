@@ -100,8 +100,7 @@ this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe(
 ```javascript
 constructor(private coinService: CoinService) { }
 
-this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe((data)=> {this.displayConverter '<--- 
-    'propriedade responsável por renderizar o elemento' = data '<--- valor emitido do convert-action.component.ts utilizando Subject'})
+this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe((data)=> {this.displayConverter '<--- propriedade responsável por renderizar o elemento' = data '<--- valor emitido do convert-action.component.ts utilizando Subject'})
 ```
 
 
