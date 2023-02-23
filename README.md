@@ -107,7 +107,7 @@ showConverter() {
 
 <p>No exemplo de código acima, ao clicar no -> convert-action.component.html, é acionada uma função em seu arquivo .ts, a qual acessa o Subject instanciado no serviço de moedas e emite um dado booleano para qualquer outro componente da aplicação.</p>
 
-<p>Já no componente que você deseja pegar/acessar esse dado emitido, você deve injetar o serviço na construção do componente, e através do Subject acionar o subscribe():</p>
+<p>Já no componente que você deseja pegar/acessar esse dado emitido, você deve injetar o serviço no qual foi criado o Subject na construção do componente, e através do Subject acionar o subscribe():</p>
 
 ```javascript
 constructor(private coinService: CoinService) { }
@@ -115,15 +115,13 @@ constructor(private coinService: CoinService) { }
 this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe((data)=> {this.displayConverter = data})
 ```
 
-<p>Neste exemplo de código, na função inicializadora do -> conversion-dashboard.comoponent.ts, pegamos o valor booleano que o -> convert-action.component.ts passou/emitiu para o próximo componente na aplicação utilizanto o método next() do Subject quando clicado, foi alterada uma propriedade do -> conversion-dashboard.comoponent.ts a qual é responsável por renderizar este elemento quando seu valor for true, que neste caso, corresponde ao valor emitido utilizando Subject.</p>
+<p>Neste exemplo de código, na função inicializadora do -> conversion-dashboard.comoponent.ts, pegamos o valor booleano que o -> convert-action.component.ts passou/emitiu para o próximo componente na aplicação quando clicado, utilizanto o método next() do Subject; foi alterada uma propriedade do -> conversion-dashboard.comoponent.ts a qual é responsável por renderizar este elemento quando seu valor for true, que neste caso, corresponde ao valor emitido por -> convert-action.component.ts   utilizando Subject.</p>
 
 ```javascript
 constructor(private coinService: CoinService) { }
 
 this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe((data)=> {this.displayConverter '<--- propriedade responsável por renderizar o elemento' = data '<--- valor emitido do convert-action.component.ts utilizando Subject'})
 ```
-
-
 
 ## Observações de Subjects
 <p>1 - Foram feitas mais comunicações entre os componentes supracitados com a utilização do mesmo Subject, mas a nível de exemplificação, as que foram mostradas acima são suficientes.</p>
@@ -147,8 +145,17 @@ ngOnDestroy() {
     this.subjectSubscription.unsubscribe()
 }
 ```
-
 <p>Isso evita vazamentos de memória ou qualquer coisa do tipo, evitando que qualquer dado observável ou execução de código derivada de observáveis fiquem em execução ao deixar o componente/rota, o que melhora o desempenho da aplicação.</p>
 
+## API's utilizadas
+- [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas)
+- [Frankfurter](https://www.frankfurter.app/docs/#latest)
+- [Binance API](https://www.binance.com/en/binance-api)
+
+## Tecnologias 
+- [Chart.js](https://www.chartjs.org/)
+- [Rxjs](https://rxjs.dev/)
+- [Angular CDK Layout](https://material.angular.io/cdk/layout/overview)
+
 ## Conclusão
-Sinta-se a vontade para explorar todo seu conhecimento utilizando este projeto, qualquer dúvida ou sugestão me procure no[Linkedin](www.linkedin.com/in/cibelemartinssss).
+Sinta-se a vontade para explorar todo seu conhecimento utilizando este projeto, qualquer dúvida ou sugestão me procure no  [Linkedin](www.linkedin.com/in/cibelemartinssss).
