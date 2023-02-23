@@ -1,7 +1,5 @@
 # Angular/RXJS - Operadores e Subjects
 
-# Observáveis em Angular!
-
 <p align="center">
     <img src='./src/assets/logoDoc.png' alt="Logo" width="400">
   <p align="center">
@@ -11,8 +9,8 @@
         <a href="#como-utilizar-operadores"> Como utilizar Operadores </a> |
         <a href="#observações-de-operadores"> Observações de Operadores </a> |
         <a href="#sobre-subjects"> Sobre Subjects</a> |
-         <a href="#como-utilizar-operadores"> Como utilizar Subjects </a> |
-        <a href="#observaçõe-de-subjects"> Observações de Subjects </a> |
+         <a href="#como-utilizar-subjects"> Como utilizar Subjects </a> |
+        <a href="#observações-de-subjects"> Observações de Subjects </a> |
         <a href="#conclusão"> Conclusão </a>       
        <br />
         <br />
