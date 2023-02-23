@@ -1,11 +1,32 @@
 # Angular/RXJS - Operadores e Subjects
 
+# Observáveis em Angular!
+
+<p align="center">
+    <img src='./src/assets/logoDoc.png' alt="Logo" width="400">
+  <p align="center">
+     Sumário
+      <p align="center">
+        <a href="#sobre-operadores"> Sobre Operadores </a> |
+        <a href="#como-utilizar-operadores"> Como utilizar Operadores </a> |
+        <a href="#observações-de-operadores"> Observações de Operadores </a> |
+        <a href="#sobre-subjects"> Sobre Subjects</a> |
+         <a href="#como-utilizar-operadores"> Como utilizar Subjects </a> |
+        <a href="#observaçõe-de-subjects"> Observações de Subjects </a> |
+        <a href="#conclusão"> Conclusão </a>       
+       <br />
+        <br />
+     <h1 align="center"></h1>
+    </p>
+</p>
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
-## Sobre
+## Sobre Operadores
 <p>Os operadores são um recurso da biblioteca rxjs e servem para transformar dados observáveis antes de mostra-los na aplicação/antes de informar ao subscribe(). Isso pode ser feito manualmente dentro das funcões do subscribe(), ou até mesmo dentro de um observável caso o tenha criado, mas a medida que a lógica que envolve os dados observáveis vai ficando mais complexa em uma aplicação, os operadores podem ser uma boa opção.</p>
 
-## Como utilizar oepradores
+## Como utilizar Operadores
 <p> É possível implementá-los a partir do método -> pipe(); todo observável tem um método deste. O pipe pode ser imaginado como uma tubulação para os dados observados. Você deve importar o operador que irá utilizar na sua tubulação de 'rxjs/operators', veja um exemplo abaixo:</p>
 
 ```javascript
@@ -44,14 +65,17 @@ getCurrencyQuote() {
 
 Neste exemplo de código o operador map() foi utilizado para mapear os dados do observável retornado pelo método get(), conforme demonstrado na documentação [Angular](https://angular.io/guide/http), e para cada dado retornado foram criados três objetos, os quais seguem o padrão da interface CoinPrice, e retornado um array com esses objetos.
 
-### Observações
+### Observações de Operadores
 
 1 - O pipe() pode receber um ou mais operadores em seu parâmetro. Eles são executados um após o outro fazendo diferentes transformações nos dados observados.
 
 2 - Imagine que o operador map() é semelhante a função map() utilizada para percorrer arrays. Para cada um dos dados que passar pelo  pipe() e chegar no parâmetro da função assumida como argumento do operador map(), essa função vai fazer alguma transformação. Em sentido contínuo, também existe o operador filter(), que filtra os dados com base em uma condição.
 
-## Sobre subjects
-<p>Os subjects são parecidos com EventEmitter/emissão de eventos em Angular. Mas só devem ser utilizados para comunicação entre componentes através de serviços. Nos casos em que houver um '@Output()' a melhor opção ainda é EventEmitter. Os Subjects são muito úteis para implementar comunicação entre componentes cruzados e também é uma forma mais recomendada porque são mais eficientes do que as emissões de evento nos bastidores. Eles devem ser importados do pacote 'rxjs', conforme abaixo:</p>
+## Sobre Subjects
+<p>Os subjects são parecidos com EventEmitter/emissão de eventos em Angular. Mas só devem ser utilizados para comunicação entre componentes através de serviços. Nos casos em que houver um '@Output()' a melhor opção ainda é EventEmitter. Os Subjects são muito úteis para implementar comunicação entre componentes cruzados e também é uma forma mais recomendada porque são mais eficientes do que as emissões de evento nos bastidores.</p>
+
+## Como utilizar Subjects
+Eles devem ser importados do pacote 'rxjs', conforme abaixo:
 
 ```javascript
 import { Subject } from "rxjs";
@@ -105,19 +129,19 @@ this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe(
 
 
 
-## Observações
+## Observações de Subjects
 <p>1 - Foram feitas mais comunicações entre os componentes supracitados com a utilização do mesmo Subject, mas a nível de exemplificação, as que foram mostradas acima são suficientes.</p>
 
 <p>2 - Subject é um tipo especial de observável. Nos observáveis também chamamos o método next(), mas de dentro deles quando o criamos ou quando comunicamos essa 'fase' do dado observado ao subscribe(). Já o Subject é mais ativo porque chamamos o next() passando um dado para o próximo componente que assinar/inscrever o dado observado e emitido por ele.</p>
 
-<p>2 - Assim como os observáveis criados  manualmente, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
+<p>3 - Assim como os observáveis criados  manualmente, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
 
-Para isso, conforme essa documentação sobre [Observáveis](https://github.com/CibeleMartins/angularObservables), você deve armazenar a chamada do subscribe() em uma propriedade do tipo Subscription, importada do pacote rxjs:
+Para isso, conforme essa documentação sobre [Observáveis](https://github.com/CibeleMartins/angularObservables) sugere, você deve armazenar a chamada do subscribe() em uma propriedade do tipo Subscription, importada do pacote rxjs:
 
 
 ```javascript
 import {Subscription } from 'rxjs';
- subjectSubscription!: Subscription;
+subjectSubscription!: Subscription;
 ```
 
 <p>E no ciclo de vida de destruição do componente, dentro de ngOnDestroy(), cancelar o subscribe() a partir desta propriedade chamando unsubscribe():</p>
@@ -129,3 +153,6 @@ ngOnDestroy() {
 ```
 
 <p>Isso evita vazamentos de memória ou qualquer coisa do tipo, evitando que qualquer dado observável ou execução de código derivada de observáveis fiquem em execução ao deixar o componente/rota, o que melhora o desempenho da aplicação.</p>
+
+## Conclusão
+Sinta-se a vontade para explorar todo seu conhecimento utilizando este projeto, qualquer dúvida ou sugestão me procure no[Linkedin](www.linkedin.com/in/cibelemartinssss).
