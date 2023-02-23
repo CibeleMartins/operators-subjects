@@ -42,7 +42,7 @@ getCurrencyQuote() {
 }
 ```
 
-<p>Neste exemplo de código o operador map() foi utilizado para mapear os dados do observável retornado pelo método get(), conforme demonstrado na documentação [Angular] (https://angular.io/guide/http), e para cada dado retornado foram criados três objetos, os quais seguem o padrão da interface CoinPrice, e retornado um array com esses objetos.</p>
+<p>Neste exemplo de código o operador map() foi utilizado para mapear os dados do observável retornado pelo método get(), conforme demonstrado na documentação [Angular](https://angular.io/guide/http), e para cada dado retornado foram criados três objetos, os quais seguem o padrão da interface CoinPrice, e retornado um array com esses objetos.</p>
 
 ### Observações
 
