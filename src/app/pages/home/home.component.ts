@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs'
+import { Subscription } from 'rxjs'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
       this.isLargeOrMedium = false
       this.isSmallorXsmall = false
       if (result.breakpoints[Breakpoints.Small]) {
-
         console.log('small')
         this.flexDirectionColumn = true;
         this.isSmallorXsmall = true
