@@ -42,7 +42,7 @@ getCurrencyQuote() {
 }
 ```
 
-<p>Neste exemplo de código o operador map() foi utilizado para mapear os dados do observável retornado pelo método get(), conforme demonstrado na documentação [Angular](https://angular.io/guide/http), e para cada dado retornado foram criados três objetos, os quais seguem o padrão da interface CoinPrice, e retornado um array com esses objetos.</p>
+Neste exemplo de código o operador map() foi utilizado para mapear os dados do observável retornado pelo método get(), conforme demonstrado na documentação [Angular](https://angular.io/guide/http), e para cada dado retornado foram criados três objetos, os quais seguem o padrão da interface CoinPrice, e retornado um array com esses objetos.
 
 ### Observações
 
@@ -71,7 +71,7 @@ displayDashboardConverter = new Subject<boolean>()
 
 <p>Neste exemplo, o Subject foi criado no serviço de moedas -> CoinService, pois irá emitir um dado do tipo booleano, após o clique em um botão, que será uma condição para renderizar o conversor de moedas.</p>
 
-<p>No componente que você deseja emitir um dado, nesse caso, no botão; após injetar a classe do serviço na função construtora do componente conforme essa documentação sobre [Serviços](https://github.com/CibeleMartins/angularServices) sugere, você pode chamar esse Subject, acessar o método next() e passar esse dado para o próximo componente, o qual pode ser qualquer outro componente da aplicação, acima ou abaixo na árvore de componentes:</p>
+No componente que você deseja emitir um dado, nesse caso, no botão; após injetar a classe do serviço na função construtora do componente conforme essa documentação sobre [Serviços](https://github.com/CibeleMartins/angularServices) sugere, você pode chamar esse Subject, acessar o método next() e passar esse dado para o próximo componente, o qual pode ser qualquer outro componente da aplicação, acima ou abaixo na árvore de componentes:
 
 ```html
 <button id="show-converter-action" *ngIf="!conversorIsShowing" (click)="showConverter()">
@@ -113,7 +113,7 @@ this.subjectSubscription = this.coinService.displayDashboardConverter.subscribe(
 
 <p>2 - Assim como os observáveis criados  manualmente, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
 
-<p>Para isso, conforme essa documentação sobre [Observáveis](https://github.com/CibeleMartins/angularObservables), você deve armazenar a chamada do subscribe() em uma propriedade do tipo Subscription, importada do pacote rxjs:</p>
+Para isso, conforme essa documentação sobre [Observáveis](https://github.com/CibeleMartins/angularObservables), você deve armazenar a chamada do subscribe() em uma propriedade do tipo Subscription, importada do pacote rxjs:
 
 
 ```javascript
