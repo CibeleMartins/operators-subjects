@@ -32,11 +32,6 @@ export class ConversionDashboardComponent implements OnInit{
     this.coinService.displayDashboardConverter.next(this.displayConverter)
   }
 
-  // showConverter() {
-    
-  //   this.displayConverter = true
-  // }
-
   closeConverter() {
     this.displayConverter = false
     this.coinService.displayDashboardConverter.next(this.displayConverter)
